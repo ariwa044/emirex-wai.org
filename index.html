@@ -1273,29 +1273,79 @@ googletag.cmd.push(function() { googletag.display('div-gpt-ad-4092325-3'); });
             
             posthog.reset();
             
-            // Smartsupp Chat Widget - Official embed format
+            // Floating Telegram Button
             (function() {
-                window._smartsupp = window._smartsupp || {};
-                window._smartsupp.key = '827ea3075549a8caa081f9c2feca9e5da7d7685f';
+                // Create floating button container
+                var floatingButton = document.createElement('div');
+                floatingButton.id = 'telegram-floating-button';
+                floatingButton.innerHTML = '<a href="https://t.me/Womeninaviation" target="_blank" rel="noopener noreferrer" title="Chat with us on Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.954-.14.576.191l-8.55 7.722h-.002l-.002.001-.314 4.168c.466 0 .673-.211 1.005-.609l2.4-2.309 4.970 3.658c.915.588 1.533.271 1.758-1.431l3.181-14.653c.146-.658-.237-1.025-.913-.805z"/></svg></a>';
                 
-                // Create and inject the widget script
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.charset = 'utf-8';
-                script.async = true;
-                script.src = 'https://www.smartsuppchat.com/loader.js';
+                // Add styles
+                var style = document.createElement('style');
+                style.innerHTML = `
+                    #telegram-floating-button {
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        z-index: 9999;
+                        animation: bounce 2s infinite;
+                    }
+                    
+                    #telegram-floating-button a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 56px;
+                        height: 56px;
+                        border-radius: 50%;
+                        background: linear-gradient(135deg, #0088cc 0%, #007DB5 100%);
+                        box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+                    
+                    #telegram-floating-button a:hover {
+                        transform: scale(1.1);
+                        box-shadow: 0 6px 16px rgba(0, 136, 204, 0.6);
+                    }
+                    
+                    #telegram-floating-button a:active {
+                        transform: scale(0.95);
+                    }
+                    
+                    @keyframes bounce {
+                        0%, 100% {
+                            transform: translateY(0);
+                        }
+                        50% {
+                            transform: translateY(-10px);
+                        }
+                    }
+                    
+                    @media (max-width: 768px) {
+                        #telegram-floating-button {
+                            bottom: 15px;
+                            right: 15px;
+                        }
+                        
+                        #telegram-floating-button a {
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+                `;
                 
-                script.onload = function() {
-                    console.log('Smartsupp widget script loaded successfully');
-                };
+                // Inject styles and button
+                document.head.appendChild(style);
                 
-                script.onerror = function() {
-                    console.error('Failed to load Smartsupp widget. Domain may not be whitelisted.');
-                };
-                
-                var firstScript = document.getElementsByTagName('script')[0];
-                if (firstScript && firstScript.parentNode) {
-                    firstScript.parentNode.insertBefore(script, firstScript);
+                // Add button after DOM is ready
+                if (document.body) {
+                    document.body.appendChild(floatingButton);
+                } else {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        document.body.appendChild(floatingButton);
+                    });
                 }
             })();
 
