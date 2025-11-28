@@ -1,0 +1,27 @@
+#event-starting-modal .modal-body {
+  padding: 5px 20px 20px 20px;
+}
+#event-starting-modal .modal-body .close {
+  width: 100%;
+  text-align: right;
+  margin-right: 14px;
+  font-size: 30px;
+}
+#event-starting-modal .modal-body h1 {
+  font-size: 34px;
+  text-align: center;
+}
+#event-starting-modal .modal-body .event-starting-content {
+  text-align: center;
+  background-color: #f4f4f4;
+}
+#event-starting-modal .modal-body .event-starting-content h2 {
+  padding: 5% 25% 5% 25%;
+  font-size: 20px;
+}
+#event-starting-modal .modal-body .event-starting-content .view-event-link {
+  width: 100%;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,6 @@
+novi-content-wrapper p:empty:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+}
+/*# sourceMappingURL=content-region-shims.css.map */
